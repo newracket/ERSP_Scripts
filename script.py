@@ -24,8 +24,11 @@ def convert_all_spreadsheets_to_xlsx(dir_path):
       file_path = os.path.join(root, file)
 
       if (file_path.endswith('.xls') and not (os.path.isfile(file_path + 'x'))):
-        print(file_path)
-        convert_xls_to_xlsx(file_path)
+        # print(file_path)
+        try:
+          convert_xls_to_xlsx(file_path)
+        except:
+          print('Error converting file: ' + file_path)
 
 def read_file(file_name):
   convert_xls_to_xlsx(file_name)
@@ -34,7 +37,7 @@ def read_file(file_name):
 
   print(ws['A1'].value)
 
-convert_all_spreadsheets_to_xlsx('C:\\Users\\anike\\OneDrive\\Documents\\UCSD\\ERSP\\Script\\spreadsheets\\database')
+convert_all_spreadsheets_to_xlsx('C:\\Users\\anike\\OneDrive\\Documents\\UCSD\\ERSP\\Script\\spreadsheets')
 # convert_xls_to_xlsx('C:\\Users\\anike\\OneDrive\\Documents\\UCSD\\ERSP\\Script\\cross_sheet.xls')
 # convert_xls_to_xlsx('C:\\Users\\anike\\OneDrive\\Documents\\UCSD\\ERSP\\Script\\no_cross_sheet.xls')
 # read_file('C:\\Users\\anike\\OneDrive\\Documents\\UCSD\\ERSP\\Script\\cross_sheet.xls')
